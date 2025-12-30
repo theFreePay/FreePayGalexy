@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>FreePayGalexy</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <link rel="stylesheet" href="./Style/Space Dash.css">
+
+</head>
+
+<body>
+
+    <div class="NumberDiv" id="NumberDiv">
+
+        <p id="ReadyP">Reday!!</p>
+    </div>
+    <div id="FirstDiv">
+        <div id="InfoViewer">
+            <h2 id="H2Viewer" class="H2Viewer"></h2>
+            <h2 id="H3Viewer" class="H2Viewer"></h2>
+
+            <button id="StartGameBtn" class="StartBtnAnimClass"> START</button>
+
+        </div>
+    </div>
+    <div class="score">Score: <span id="score">0</span></div>
+    <div class="theme-indicator" id="themeIndicator">THEME: <span id="themeName">Classic</span></div>
+    <div class="speed-indicator">Speed: <span id="speedValue">1.0x</span></div>
+    <div class="bot-counter">Online at your Score: <span id="botCount">0</span></div>
+    <div class="shake-indicator" id="shakeIndicator">💥 EXPLOSION IMPACT! 💥</div>
+
+    <!-- Milestone Announcement -->
+    <div class="milestone" id="milestone">🎉 LEVEL UP! 🎉</div>
+
+    <!-- Claim button bottom left -->
+    <button class="claim-btn" id="claimBtn">
+        <div class="claim-text">CLAIM</div>
+        <div class="claim-amount" id="claimAmount">0.00 Coins</div>
+    </button>
+
+    <canvas id="game"></canvas>
+
+    <!-- Joystick right side -->
+    <div class="joystick-container" id="joystickContainer">
+        <div class="joystick-base" id="joystickBase">
+            <div class="joystick-handle" id="joystickHandle"></div>
+        </div>
+    </div>
+
+    <!-- Win screen -->
+    <div class="game-over win-screen" id="winScreen">
+        <h1>🎉 YOU WON!</h1>
+        <div style="margin: 20px 0; font-size: 50px;">💰</div>
+        <p>You successfully claimed:</p>
+        <h2 id="winCoins" style="color:#0f0; font-size: 36px; margin: 15px 0;">0.00 Coins</h2>
+        <button class="restart" onclick="" id="ClaimCoinAndScore">Claim</button>
+
+    </div>
+
+    <!-- Lose screen -->
+    <div class="game-over lose-screen" id="loseScreen">
+        <h1>💥 SHIP DESTROYED!</h1>
+        <div style="margin: 20px 0; font-size: 50px;">🚨</div>
+        <p>Final Score:</p>
+        <h2 id="loseScore" style="color:#ff6b6b; font-size: 36px; margin: 15px 0;">0</h2>
+        <button class="restart" id="TryAgainBtn">TRY AGAIN</button>
+    </div>
+
+    <div id="HomeBtn"
+        style="position: fixed;z-index: 9999;width: 2rem;height: 2rem;background-color: #0079cf;bottom: 0;right: 0;margin-bottom: 30.8rem;margin-right: 2rem; border-radius: 0.5rem;">
+        <i>
+            <svg style="color: #ffffff; " xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                <path
+                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+            </svg>
+        </i>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function Freez() {
+            document.body.style.pointerEvents = 'none';
+            setInterval(() => {
+                window.addEventListener('online', () => {
+                    document.body.style.pointerEvents = 'all';
+                    window.location.reload();
+
+                });
+                console.log('yoer page was Freez');
+            }, 2000)
+        }
+        window.addEventListener('offline', () => {
+            Freez();
+            Swal.fire({
+                title: "Chek your Internet!",
+                icon: "warning"
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script src="./JsCode/Space Dash.js"></script>
+</body>
+
+</html>

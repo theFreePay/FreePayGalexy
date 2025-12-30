@@ -1,0 +1,390 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+
+/* FirstDiv */
+#FirstDiv{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: linear-gradient(to bottom , #000022 , blue) ;
+    z-index: 999;
+    align-items: start;
+    justify-content: center;
+}
+#InfoViewer{
+    display: flex;
+    width: 80%;
+    height: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    
+}
+.H2Viewer{
+    background-image: linear-gradient(to right, rgb(0, 222, 230) , rgb(187, 0, 187));
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+#StartGameBtn{
+    width: 80%;
+    height: 10%;
+    border-radius: 1rem 1rem 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    position: fixed;
+    border-bottom: none;
+    color:  white;
+    background: linear-gradient(to right , #00002290 , rgba(128, 0, 128, 0.596));
+    border-color: purple;
+    font-size:larger;
+    font-weight: bold;
+    box-shadow: 0.3rem 0.3rem 0.5rem 0rem aqua inset;
+    /* display: none; */
+    /* opacity: 0; */
+    transform: translateY(80px);
+    
+}
+
+.NumberDiv{
+    background-color: #000022;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+}
+#claimBtn{
+    pointer-events: none;
+}
+.ReadyP{
+    font-size: xx-large;
+    color: white;
+    font-weight: bold;
+    animation: NumberPAnim 4s  ease-in;
+    opacity: 0;
+}
+@keyframes NumberPAnim{
+    0%{
+        opacity: 1;
+        color: purple;
+        font-size: 2.2rem;
+
+    }
+    10%{
+        font-size: 2.3rem;
+    }
+    20%{
+        font-size: 2.4rem;
+
+    }
+    30%{
+        font-size: 2.5rem;
+
+    }
+    40%{
+        font-size: 2.6rem;
+
+    }
+    50%{
+        color: aqua;
+    }
+    60%{
+        font-size: 2.6rem;
+
+    }
+    70%{
+        font-size: 2.7rem;
+
+        color: white;
+    }
+    80%{
+        font-size: 2.8rem;
+
+    }
+    90%{
+        font-size: 2.9rem;
+        opacity: 1;
+    }
+    100%{
+        font-size: 3rem;
+        opacity: 0;
+        /* color: purple; */
+    }
+}
+canvas {
+    display: block;
+    background: linear-gradient(to bottom, #000 0%, #0a0e29 100%);
+    transition: transform 0.05s linear, filter 0.1s ease-out, background 1s ease-out;
+}
+
+
+/* Score at top */
+.score {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    font: bold 24px Arial;
+    text-shadow: 0 0 10px #00f;
+    z-index: 100;
+}
+
+/* Theme indicator */
+.theme-indicator {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    color: #ffcc00;
+    font: bold 16px Arial;
+    text-shadow: 0 0 5px #ff9900;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 1px solid #ffcc00;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+/* Level milestone indicator */
+.milestone {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font: bold 36px Arial;
+    text-align: center;
+    z-index: 250;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px 50px;
+    border-radius: 20px;
+    border: 3px solid;
+    display: none;
+    box-shadow: 0 0 50px;
+    text-shadow: 0 0 20px;
+}
+
+/* Claim button bottom left */
+.claim-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: linear-gradient(45deg, #00ff88, #00cc66);
+    color: #003311;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #00ff88;
+    z-index: 100;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 140px;
+    max-width: 160px;
+}
+
+.claim-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00ff88;
+}
+
+.claim-btn:active {
+    transform: scale(0.95);
+}
+
+.claim-text {
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: #002200;
+    font-weight: 800;
+}
+
+.claim-amount {
+    font-size: 18px;
+    color: #001100;
+    font-weight: 900;
+}
+
+/* Game over screens */
+.game-over {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    display: none;
+    background: rgba(0, 20, 40, 0.95);
+    padding: 35px;
+    border-radius: 20px;
+    border: 3px solid #00f;
+    z-index: 200;
+    min-width: 350px;
+    box-shadow: 0 0 50px rgba(0, 100, 255, 0.5);
+}
+
+.win-screen {
+    border: 3px solid #0f0;
+    background: rgba(0, 40, 20, 0.95);
+    box-shadow: 0 0 50px rgba(0, 255, 100, 0.5);
+}
+
+.lose-screen {
+    border: 3px solid #f00;
+    background: rgba(40, 0, 0, 0.95);
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+}
+
+.restart {
+    background: #00f;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Joystick right side - BIGGER */
+.joystick-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 140px;
+    height: 140px;
+    z-index: 100;
+}
+
+.joystick-base {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 100, 255, 0.2);
+    border-radius: 50%;
+    border: 2px solid rgba(0, 200, 255, 0.5);
+    position: relative;
+}
+
+.joystick-handle {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    background: #00ffff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    box-shadow: 0 0 12px #00ffff;
+}
+
+/* Speed indicator */
+.speed-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #0ff;
+    font: bold 18px Arial;
+    text-shadow: 0 0 8px #00f;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 1px solid #00f;
+}
+
+/* Bot counter */
+.bot-counter {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    color: #ff6b6b;
+    font: bold 16px Arial;
+    text-shadow: 0 0 5px #f00;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 1px solid #f00;
+}
+
+/* Shake indicator */
+.shake-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ff9900;
+    font: bold 14px Arial;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 1px solid #ff9900;
+    z-index: 100;
+    display: none;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes milestoneAnimation {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
