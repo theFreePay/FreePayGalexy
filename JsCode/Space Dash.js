@@ -779,7 +779,7 @@ async function telUserFinder() {
 
                 const { data, error } = await _supabase
                     .from('telusersinfo')
-                    .update({ Score: `${NowOkScore}`, point: `${OkCoin}` })
+                    .update({ Score: `${NowOkScore}` })
                     .eq('id', a)
                     .select()
 
@@ -1315,4 +1315,5 @@ async function telUserFinder() {
     // init();
 
 } telUserFinder();
+
 
