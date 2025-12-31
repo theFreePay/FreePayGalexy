@@ -836,6 +836,16 @@ async function telUserFinder() {
             document.getElementById('loseScore').textContent = score;
             cancelAnimationFrame(animationId);
             document.getElementById('HomeBtn').style.display = 'flex';
+            AdController.show().then((result) => {
+                alert("Ok"+result);
+    // user watch ad till the end or close it in interstitial format
+    // your code to reward user for rewarded format
+}).catch((result) => {
+                
+                alert(result);
+    // user get error during playing ad
+    // do nothing or whatever you want
+})
 
         }, 800);
 
@@ -1303,4 +1313,5 @@ async function telUserFinder() {
     setupJoystick();
     // for play
     // init();
+
 } telUserFinder();
