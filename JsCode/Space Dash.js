@@ -795,6 +795,12 @@ async function telUserFinder() {
                 document.getElementById('ClaimCoinAndScore').innerText = 'Restart';
                 document.getElementById('ClaimCoinAndScore').onclick = (() => {
                     init();
+
+                    window.TelegramAdsController.triggerInterstitialBanner().then((result) => {
+        alert(result);
+    }).catch((result) => {
+        alert(result);
+    });
                 });
             });
 
@@ -1315,5 +1321,6 @@ async function telUserFinder() {
     // init();
 
 } telUserFinder();
+
 
 
